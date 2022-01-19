@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     tools:context=".MainActivity">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,11 +14,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_200"
+            android:background="@color/purple_500"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             />
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -29,7 +27,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
     </RelativeLayout>
-
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -37,6 +34,4 @@
         app:menu="@menu/nav_menu"
         android:layout_gravity="start"
         />
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
