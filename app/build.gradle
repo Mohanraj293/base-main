@@ -51,10 +51,9 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
 
     //Dagger
-    dependencies {
-        implementation 'com.google.dagger:dagger:2.38.1'
-        annotationProcessor 'com.google.dagger:dagger-compiler:2.38.1'
-    }
+    implementation 'com.google.dagger:dagger:2.38.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.38.1'
+
 
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
