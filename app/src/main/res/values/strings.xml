@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Base</string>
+    <string name="header_title">Welcome User</string>
+    <string name="header_text">username@domain.com</string>
+    <string name="todo">TODO</string>
 
 </resources>
