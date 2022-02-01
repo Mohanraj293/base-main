@@ -9,10 +9,27 @@
         android:id="@+id/realmMain"
         android:name="com.example.base.realm.RealmMain"
         android:label="Realm"
-        tools:layout="@layout/realm_main" />
+        tools:layout="@layout/realm_main" >
+        <action
+            android:id="@+id/action_realmMain_to_addNotesFragment"
+            app:destination="@id/addNotesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/daggerMain"
         android:name="com.example.base.dagger.DaggerMain"
         android:label="Dagger"
         tools:layout="@layout/dagger_main" />
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.example.base.realm.AddNotesFragment"
+        android:label="Add Notes"
+        tools:layout="@layout/fragment_add_notes" >
+        <action
+            android:id="@+id/action_addNotesFragment_to_realmMain"
+            app:destination="@id/realmMain" />
+    </fragment>
 </navigation>

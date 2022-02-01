@@ -7,13 +7,10 @@ import io.realm.RealmConfiguration
 class MyApp:Application() {
     override fun onCreate() {
         super.onCreate()
-
-
         // realm -------------------------------------------
         Realm.init(this)
-
         val configuration = RealmConfiguration.Builder()
-            .name("todo.db")
+            .name("TodoList.db")
             .deleteRealmIfMigrationNeeded()
             .schemaVersion(0)
             .allowWritesOnUiThread(true)
