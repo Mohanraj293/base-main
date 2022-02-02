@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.realmMain,
                 R.id.daggerMain,
+                R.id.MVPMainFragment
             ),
             drawerLayout
         )

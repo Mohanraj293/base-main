@@ -3,5 +3,8 @@
     <string name="header_title">Welcome User</string>
     <string name="header_text">username@domain.com</string>
     <string name="todo">TODO</string>
+    <string name="buttonText">Display Next Course</string>
+    <string name="heading">MVP Architecture Pattern</string>
+    <string name="description">Course Description</string>
 
 </resources>
