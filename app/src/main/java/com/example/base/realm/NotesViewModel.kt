@@ -48,9 +48,9 @@ class NotesViewModel:ViewModel(){
         }
     }
 
-    fun deleteNote(id: String){
+    fun deleteNote(note: Notes){
         val notes = realm.where(Notes::class.java)
-            .equalTo("id", id)
+            .equalTo("id", note.id)
             .findFirst()
 
         realm.executeTransaction {

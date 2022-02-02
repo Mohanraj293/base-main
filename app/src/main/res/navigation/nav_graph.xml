@@ -32,4 +32,9 @@
             android:id="@+id/action_addNotesFragment_to_realmMain"
             app:destination="@id/realmMain" />
     </fragment>
+    <fragment
+        android:id="@+id/MVPMainFragment"
+        android:name="com.example.base.mvp.view.MVPMainFragment"
+        android:label="Simple MVP Architecture"
+        tools:layout="@layout/mvp_main" />
 </navigation>
