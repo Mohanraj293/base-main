@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.realm_main.*
 
 class RealmMain:Fragment(R.layout.realm_main),NotesAdapter.Interaction{
@@ -44,9 +45,20 @@ class RealmMain:Fragment(R.layout.realm_main),NotesAdapter.Interaction{
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val note = notesAdapter.differ.currentList[viewHolder.adapterPosition]
+
+                val title = note.title.toString()
+                val description = note.description.toString()
                 viewModel.deleteNote(note)
                 notesAdapter.notifyItemRemoved(viewHolder.adapterPosition)
-                Toast.makeText(activity, "Note deleted", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(activity, "Note deleted", Toast.LENGTH_SHORT).show()
+                Snackbar.make(view,"Article Deleted Successfully" , Snackbar.LENGTH_LONG).apply {
+                    setAction("Undo")
+                    {
+                        viewModel.addNote(title,description)
+                        notesAdapter.notifyItemChanged(viewHolder.adapterPosition)
+                    }
+                    show()
+                }
             }
         }).attachToRecyclerView(notesRV)
     }
@@ -64,11 +76,15 @@ class RealmMain:Fragment(R.layout.realm_main),NotesAdapter.Interaction{
         builder?.setCancelable(false)
         builder?.setTitle("Update Note")
         builder?.setPositiveButton("Update") { _, _ ->
-            viewModel.updateNote(
-                notes.id!!,
-                titleEdtxt.text.toString(),
-                descriptionEdtxt.text.toString()
-            )
+            if(titleEdtxt.text.toString().isBlank()|| descriptionEdtxt.text.toString().isBlank()) Toast.makeText(activity,"kindly update",Toast.LENGTH_LONG).show()
+            else{
+                viewModel.updateNote(
+                    notes.id!!,
+                    titleEdtxt.text.toString(),
+                    descriptionEdtxt.text.toString()
+                )
+            }
+
             notesAdapter.notifyItemChanged(pos)
             Toast.makeText(activity, "Updated Note", Toast.LENGTH_SHORT).show()
         }
