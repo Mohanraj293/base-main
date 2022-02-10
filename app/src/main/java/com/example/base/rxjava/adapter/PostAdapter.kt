@@ -38,7 +38,9 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     //--------------------------------------------------------------------------------
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         return PostViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.rxjava_item,parent,false)
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.rxjava_item,parent,false)
         )
     }
     override fun getItemCount():Int = differ.currentList.size
