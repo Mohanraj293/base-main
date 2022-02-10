@@ -37,4 +37,9 @@
         android:name="com.example.base.mvp.view.MVPMainFragment"
         android:label="Simple MVP Architecture"
         tools:layout="@layout/mvp_main" />
+    <fragment
+        android:id="@+id/rxJavaMain"
+        android:name="com.example.base.rxjava.RxJavaMain"
+        android:label="RxJava"
+        tools:layout="@layout/rxjava_main" />
 </navigation>

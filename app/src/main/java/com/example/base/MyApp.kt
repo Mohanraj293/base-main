@@ -13,8 +13,8 @@ class MyApp:Application() {
             .name("TodoList.db")
             .deleteRealmIfMigrationNeeded()
             .schemaVersion(0)
-            .allowWritesOnUiThread(true)
             .allowQueriesOnUiThread(true)
+            .allowWritesOnUiThread(true)
             .build()
 
         Realm.setDefaultConfiguration(configuration)

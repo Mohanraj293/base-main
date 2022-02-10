@@ -26,12 +26,10 @@ class Model: Contract.Model {
     // and it will take a delay of
     // 1200 milliseconds to display next course detail
     override fun getNextCourse(onFinishedListener: Contract.Model.OnFinishedListener?) {
-        val handler = Handler()
-        handler.postDelayed({
+        Handler().postDelayed({
             onFinishedListener!!.onFinished(getRandomString)
         },1000)
     }
-
 
     // method to select random
     // string from the list of strings

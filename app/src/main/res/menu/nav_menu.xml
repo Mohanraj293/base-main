@@ -13,4 +13,8 @@
         android:id="@+id/MVPMainFragment"
         android:title="MVP Architecture"
         />
+    <item
+        android:id="@+id/rxJavaMain"
+        android:title="Rxjava"
+        />
 </menu>

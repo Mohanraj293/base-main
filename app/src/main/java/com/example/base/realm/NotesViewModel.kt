@@ -11,7 +11,6 @@ class NotesViewModel:ViewModel(){
 
     val allNotes: LiveData<List<Notes>> = getNotesList()
 
-
     private fun getNotesList():MutableLiveData<List<Notes>>{
         val list = MutableLiveData<List<Notes>>()
         val notes = realm.where(Notes::class.java).findAll()

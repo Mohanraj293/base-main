@@ -22,7 +22,6 @@ class MVPMainFragment:Fragment(R.layout.mvp_main) , Contract.View {
         button!!.setOnClickListener{
             presenter!!.onButtonClick()
         }
-
     }
     override fun onDestroy() {
         super.onDestroy()

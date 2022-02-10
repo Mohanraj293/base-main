@@ -10,7 +10,7 @@ class Presenter (
     // operations to be performed
     // on button click
     override fun onButtonClick() {
-        if (mainView != null) {
+        if (mainView!=null) {
             mainView!!.showProgress()
         }
         model.getNextCourse(this)
