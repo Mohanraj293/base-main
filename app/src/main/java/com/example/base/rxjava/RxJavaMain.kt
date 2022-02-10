@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.base.R
@@ -30,6 +31,7 @@ class RxJavaMain:Fragment(R.layout.rxjava_main) {
         binding = RxjavaMainBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -44,16 +46,30 @@ class RxJavaMain:Fragment(R.layout.rxjava_main) {
         val disposable = jsonApi.posts
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{
-                postAdapter.differ.submitList(it)
-            }
+            .subscribe({
+                    //onNext
+                    postAdapter.differ.submitList(it)
+                },{
+                    //onError
+                    Toast.makeText(activity,"Something Went Wrong",Toast.LENGTH_SHORT).show()
+                },{
+                    //onCompleted
+                    Toast.makeText(activity,"Completed",Toast.LENGTH_SHORT).show()
+                })
         compositeDisposable.add(disposable)
     }
+
     private fun initRecyclerView(){
         binding.rxjavaRV.apply {
             layoutManager = LinearLayoutManager(activity)
             postAdapter = PostAdapter()
             adapter = postAdapter
         }
+    }
+
+    //dispose observer
+    override fun onDestroy() {
+        super.onDestroy()
+        compositeDisposable.dispose()
     }
 }
