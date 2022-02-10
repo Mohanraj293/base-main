@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.list_note.view.*
 class NotesAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Notes>() {
+    private val differCallback  = object : DiffUtil.ItemCallback<Notes>() {
         override fun areItemsTheSame(oldItem: Notes, newItem: Notes): Boolean {
             return oldItem.id == newItem.id
         }
@@ -23,7 +23,7 @@ class NotesAdapter(private val interaction: Interaction? = null) :
             return oldItem == newItem
         }
     }
-    val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+    val differ = AsyncListDiffer(this, differCallback )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -47,10 +47,6 @@ class NotesAdapter(private val interaction: Interaction? = null) :
 
     override fun getItemCount(): Int {
         return differ.currentList.size
-    }
-
-    fun submitList(list: List<Notes>) {
-        differ.submitList(list)
     }
 
 

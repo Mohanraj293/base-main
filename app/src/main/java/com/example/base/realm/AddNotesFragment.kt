@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.base.R
+import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_add_notes.*
 
@@ -30,7 +31,7 @@ class AddNotesFragment:Fragment(R.layout.fragment_add_notes){
                     titleEditText.text.toString(),
                     descEditText.text.toString()
                 )
-                Toast.makeText(activity, "Notes Saved Successfully", Toast.LENGTH_SHORT).show()
+                Snackbar.make(view,"Note Added Successfully" , Snackbar.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
             view.hideKeyboard()
